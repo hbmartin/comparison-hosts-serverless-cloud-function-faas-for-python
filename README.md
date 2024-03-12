@@ -8,7 +8,7 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 
 [TOC]
 
-# DevEx
+## DevEx
 
 |                                       | Python Version | Status    | API Framework                   | requirements.txt | Local Testing | Docs | Basic Example                                                |
 | ------------------------------------- | -------------- | --------- | ------------------------------- | ---------------- | ------------- | ---- | ------------------------------------------------------------ |
@@ -25,7 +25,7 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 
 
 
-# Pricing
+## Pricing
 
 |                                    | **Free Plan** | Bill Limits | **First Paid Tier** | Second Paid Tier |
 | ---------------------------------- | ------------- | ----------- | ------------------- | ---------------- |
@@ -43,7 +43,7 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 
 
 
-# Runtime Limits
+## Runtime Limits
 
 |                             | Memory (MB) |         | Execution Time  |                 | **Payloads (MB)** |              | Keep Alive | Scale Limits |
 | --------------------------- | ----------- | ------- | --------------- | --------------- | ----------------- | ------------ | ---------- | ------------ |
@@ -62,7 +62,7 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 
 
 
-# Other Platform Products
+## Other Platform Products
 
 |                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  | Auth |
 | ------------------------------------- | ------ | --------- | ---------- | ------------ | ---- | ---- |
@@ -78,7 +78,7 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 
 
 
-# Performance (median times)
+## Performance (median times)
 
 TODO: replicating for Python: https://github.com/serverless-benchmark/backend
 
@@ -98,13 +98,13 @@ TODO: replicating for Python: https://github.com/serverless-benchmark/backend
 
 
 
-# Security Considerations
+## Security Considerations
 
 TODO: e.g. compliance certifications, data encryption, and network security options
 
 
 
-# Discussions and Support
+## Discussions, Community, and Support
 
 |                                       | Our Wiki | Forum | Reddit |
 | ------------------------------------- | -------- | ----- | ------ |
@@ -120,5 +120,6 @@ TODO: e.g. compliance certifications, data encryption, and network security opti
 
 
 
-# References and Useful Links
+## References and Useful Links
 
+- https://fauna.com/blog/comparison-faas-providers#pricing

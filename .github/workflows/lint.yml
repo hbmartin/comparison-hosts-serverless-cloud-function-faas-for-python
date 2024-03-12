@@ -1,5 +1,12 @@
-name: lint
-on: push
+name: CI lint
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -10,6 +17,3 @@ jobs:
         uses: avto-dev/markdown-lint@v1.5.0
       - name: Typos
         uses: crate-ci/typos@v1.19.0
-
-
-

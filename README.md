@@ -4,7 +4,8 @@ TODO: Slack/ Discord / Twitter / Mastodon badges
 
 No Python support: Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEngine. IBM Cloud Functions are deprecated.
 
-This document provides an up-to-date comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes. Note the disctinction between edge providers (execution at PoP) and non-edge (typically predetermined DS region).
+This document provides an up-to-date comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes.
+Note the distinction between edge providers (execution at PoP) and non-edge (typically predetermined DS region).
 
 [TOC]
 

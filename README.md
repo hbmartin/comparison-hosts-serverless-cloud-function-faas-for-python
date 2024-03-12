@@ -13,18 +13,16 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 
 |                                       | Python Version | Status    | API Framework                   | requirements.txt | Local Testing | Docs | Basic Example                                                |
 | ------------------------------------- | -------------- | --------- | ------------------------------- | ---------------- | ------------- | ---- | ------------------------------------------------------------ |
-| **Alibaba Cloud Function Compute**    | 3.10           | GA        | Plain obj.                      | Vendor in zip    | ❔             | 🎉    | https://www.alibabacloud.com/help/en/functioncompute/latest/event-handlers |
-| **AWS Lambda and Lambda@Edge**        | 3.12           | GA        | Plain obj.                      | Vendor in zip    | ✅             | 👍    | https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python |
-| **Azure Functions**                   | 3.11           | GA        | azure-functions                 | ✅                | ✅             | 🎉    | https://learn.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=python |
+| **Alibaba Cloud Function Compute**    | 3.10           | GA        | Plain obj.                      | Vendor in zip    | ❔             | 🎉    | [Link](https://www.alibabacloud.com/help/en/functioncompute/latest/event-handlers) |
+| **AWS Lambda and Lambda@Edge**        | 3.12           | GA        | Plain obj.                      | Vendor in zip    | ✅             | 👍    | [Link](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python) |
+| **Azure Functions**                   | 3.11           | GA        | azure-functions                 | ✅                | ✅             | 🎉    | [Link](https://learn.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=python) |
 | **Fermyon** (WASM compiled)           | 3.11           | No-native | Spin                            | ❔                |               | 👍    |                                                              |
-| **Fly.io** (microVM)                  | *              | GA        | *                               | ✅                |               | 👍    | https://fly.io/docs/languages-and-frameworks/python/         |
+| **Fly.io** (microVM)                  | *              | GA        | *                               | ✅                |               | 👍    | [Link](https://fly.io/docs/languages-and-frameworks/python/) |
 | **Google / Firebase Cloud Functions** | 3.12           | GA        | Flask                           | ✅                | ✅             | 🎉    |                                                              |
-| **IBM Code Engine**                   | 3.11           | GA        | Plain obj.                      | ✅                | ✅             | 👍    | https://github.com/IBM/CodeEngine/tree/main/helloworld-samples/function-codebundle-python |
-| **Oracle (OCI) Functions**            | 3.11           | GA        | FDK                             | ✅                | ❔             | Min. | https://github.com/oracle-samples/oracle-functions-samples/tree/master/samples/helloworld |
-| **Tencent Cloud Functions**           | 3.6            | GA        | SCF                             | Vendor in zip    | ❔             | Min. | https://www.tencentcloud.com/document/product/583/40327      |
-| **Vercel Functions**                  | 3.9            | Beta      | HTTP handler or WSGI / ASGI app | ✅                | ❔             | Min. | https://vercel.com/templates/python/python-hello-world       |
-
-
+| **IBM Code Engine**                   | 3.11           | GA        | Plain obj.                      | ✅                | ✅             | 👍    | [Link](https://github.com/IBM/CodeEngine/tree/main/helloworld-samples/function-codebundle-python) |
+| **Oracle (OCI) Functions**            | 3.11           | GA        | FDK                             | ✅                | ❔             | Min. | [Link](https://github.com/oracle-samples/oracle-functions-samples/tree/master/samples/helloworld) |
+| **Tencent Cloud Functions**           | 3.6            | GA        | SCF                             | Vendor in zip    | ❔             | Min. | [Link](https://www.tencentcloud.com/document/product/583/40327) |
+| **Vercel Functions**                  | 3.9            | Beta      | HTTP handler or WSGI / ASGI app | ✅                | ❔             | Min. | [Link](https://vercel.com/templates/python/python-hello-world) |
 
 ## Pricing
 
@@ -41,8 +39,6 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 | **Oracle (OCI) Functions**         | 128           |             | 1024                |                  |
 | **Tencent Cloud Functions**        |               |             |                     |                  |
 | **Vercel Functions**               | 1024          |             | 3008                |                  |
-
-
 
 ## Runtime Limits
 
@@ -61,8 +57,6 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 | **Tencent Cloud Functions** |             |         |                 |                 |                   |              |            |              |
 | **Vercel Functions**        | 1024        | 3008    | 10s (Free plan) | 300s (Pro plan) | 5                 | 5            |            |              |
 
-
-
 ## Other Platform Products
 
 |                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  | Auth |
@@ -77,11 +71,9 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 | **Oracle (OCI) Functions**            |        |           |            |              |      |      |
 | **Vercel Functions**                  |        |           |            |              |      |      |
 
-
-
 ## Performance (median times)
 
-TODO: replicating for Python: https://github.com/serverless-benchmark/backend
+TODO: Need a benchmark suite for Python, see [this JS suite](https://github.com/serverless-benchmark/backend)
 
 |                                    | PoPs (if edge) or regions | Uptime | Cold Response (ms) | Warm Response (ms) | Overhead (ms) |
 | ---------------------------------- | ------------------------- | ------ | ------------------ | ------------------ | ------------- |
@@ -97,13 +89,9 @@ TODO: replicating for Python: https://github.com/serverless-benchmark/backend
 | **Tencent Cloud Functions**        |                           |        |                    |                    |               |
 | **Vercel Functions**               |                           |        |                    |                    |               |
 
-
-
 ## Security Considerations
 
 TODO: e.g. compliance certifications, data encryption, and network security options
-
-
 
 ## Discussions, Community, and Support
 
@@ -119,8 +107,6 @@ TODO: e.g. compliance certifications, data encryption, and network security opti
 | **Oracle (OCI) Functions**            |          |       |        |
 | **Vercel Functions**                  |          |       |        |
 
-
-
 ## References and Useful Links
 
-- https://fauna.com/blog/comparison-faas-providers#pricing
+- [Comparison by Brecht De Rooms from Feb 6th, 2020](https://fauna.com/blog/comparison-faas-providers)

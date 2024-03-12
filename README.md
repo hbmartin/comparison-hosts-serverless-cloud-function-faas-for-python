@@ -2,7 +2,7 @@
 
 TODO: Slack/ Discord / Twitter / Mastodon badges
 
-No Python support (as of 11 March, 2024): Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEngine. IBM Cloud Functions are deprecated.
+No Python support: Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEngine. IBM Cloud Functions are deprecated.
 
 This document provides an up-to-date comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes. Note the disctinction between edge providers (execution at PoP) and non-edge (typically predetermined DS region).
 
@@ -15,8 +15,8 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 | **Alibaba Cloud Function Compute**    | 3.10           | GA        | Plain obj.                      | Vendor in zip    | ❔             | 🎉    | https://www.alibabacloud.com/help/en/functioncompute/latest/event-handlers |
 | **AWS Lambda and Lambda@Edge**        | 3.12           | GA        | Plain obj.                      | Vendor in zip    | ✅             | 👍    | https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python |
 | **Azure Functions**                   | 3.11           | GA        | azure-functions                 | ✅                | ✅             | 🎉    | https://learn.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=python |
-| **Fermyon** (WASM compile)            | 3.11           | No-native | Spin                            | ❔                |               | 👍    |                                                              |
-| **Fly.io** (microVMs)                 | *              | GA        | *                               | ✅                |               | 👍    | https://fly.io/docs/languages-and-frameworks/python/         |
+| **Fermyon** (WASM compiled)           | 3.11           | No-native | Spin                            | ❔                |               | 👍    |                                                              |
+| **Fly.io** (microVM)                  | *              | GA        | *                               | ✅                |               | 👍    | https://fly.io/docs/languages-and-frameworks/python/         |
 | **Google / Firebase Cloud Functions** | 3.12           | GA        | Flask                           | ✅                | ✅             | 🎉    |                                                              |
 | **IBM Code Engine**                   | 3.11           | GA        | Plain obj.                      | ✅                | ✅             | 👍    | https://github.com/IBM/CodeEngine/tree/main/helloworld-samples/function-codebundle-python |
 | **Oracle (OCI) Functions**            | 3.11           | GA        | FDK                             | ✅                | ❔             | Min. | https://github.com/oracle-samples/oracle-functions-samples/tree/master/samples/helloworld |
@@ -41,6 +41,8 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 | **Tencent Cloud Functions**        |               |             |                     |                  |
 | **Vercel Functions**               | 1024          |             | 3008                |                  |
 
+
+
 # Runtime Limits
 
 |                             | Memory (MB) |         | Execution Time  |                 | **Payloads (MB)** |              | Keep Alive | Scale Limits |
@@ -57,6 +59,24 @@ This document provides an up-to-date comparison between hosted, serverless (no c
 | **Oracle (OCI) Functions**  | 128         | 1024    | 30s             | 120s            | 6                 | 6            |            |              |
 | **Tencent Cloud Functions** |             |         |                 |                 |                   |              |            |              |
 | **Vercel Functions**        | 1024        | 3008    | 10s (Free plan) | 300s (Pro plan) | 5                 | 5            |            |              |
+
+
+
+# Other Platform Products
+
+|                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  | Auth |
+| ------------------------------------- | ------ | --------- | ---------- | ------------ | ---- | ---- |
+| **Alibaba Cloud Function Compute**    |        |           |            |              |      |      |
+| **AWS Lambda and Lambda@Edge**        |        |           |            |              |      |      |
+| **Azure Functions**                   |        |           |            |              |      |      |
+| **Fermyon**                           |        |           |            |              |      |      |
+| **Fly.io**                            |        |           |            |              |      |      |
+| **Google / Firebase Cloud Functions** |        |           |            |              |      |      |
+| **IBM Code Engine**                   |        |           |            |              |      |      |
+| **Oracle (OCI) Functions**            |        |           |            |              |      |      |
+| **Vercel Functions**                  |        |           |            |              |      |      |
+
+
 
 # Performance (median times)
 
@@ -84,20 +104,6 @@ TODO: e.g. compliance certifications, data encryption, and network security opti
 
 
 
-# Other Cloud Platform Products
-
-|                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  | Auth |
-| ------------------------------------- | ------ | --------- | ---------- | ------------ | ---- | ---- |
-| **Alibaba Cloud Function Compute**    |        |           |            |              |      |      |
-| **AWS Lambda and Lambda@Edge**        |        |           |            |              |      |      |
-| **Azure Functions**                   |        |           |            |              |      |      |
-| **Fermyon**                           |        |           |            |              |      |      |
-| **Fly.io**                            |        |           |            |              |      |      |
-| **Google / Firebase Cloud Functions** |        |           |            |              |      |      |
-| **IBM Code Engine**                   |        |           |            |              |      |      |
-| **Oracle (OCI) Functions**            |        |           |            |              |      |      |
-| **Vercel Functions**                  |        |           |            |              |      |      |
-
 # Discussions and Support
 
 |                                       | Our Wiki | Forum | Reddit |
@@ -112,25 +118,7 @@ TODO: e.g. compliance certifications, data encryption, and network security opti
 | **Oracle (OCI) Functions**            |          |       |        |
 | **Vercel Functions**                  |          |       |        |
 
+
+
 # References and Useful Links
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

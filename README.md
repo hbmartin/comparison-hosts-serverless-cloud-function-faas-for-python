@@ -8,13 +8,13 @@ No Python support: Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEng
 This document provides an up-to-date comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes.
 Note the distinction between edge providers (execution at PoP) and non-edge (typically predetermined DS region).
 
+Please be aware that this information may be inaccurate or outdated. If you discover errors or outdated information please open a PR!
+
 - [DevEx](#devex)
 - [Pricing](#pricing)
 - [Runtime Limits](#runtime-limits)
 - [Other Platform Products](#other-platform-products)
 - [Discussions, Community, and Support](#discussions-community-and-support)
-
-
 
 ## DevEx
 
@@ -33,6 +33,8 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 
 ## Pricing
 
+Note that the "Free Plan" is intended to represent ongoing free resources i.e. not trials or sign-up credits. 
+
 |                                       | **Free Plan**                                                | Bill Limits                                                  | **First Paid Tier**                                          |
 | ------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Alibaba Cloud Function Compute**    | 3 month trial with resource limits                           | ?                                                            | [Based on requests and resources](https://www.alibabacloud.com/help/en/fc/product-overview/billing-overview) |
@@ -42,63 +44,64 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 | **Fermyon**                           | [100k reqs + 5GB egress](https://www.fermyon.com/pricing)    | NA                                                           | 1m reqs + 50GB egress at $20 / mo                            |
 | **Fly.io**                            | 3 shared-cpu-1x 256mb VMs + 100GB egress                     | NA                                                           | Depends on VM + $0.02 per GB egress (over free, min $5 / mo) + $0.15 per GB / mo stopped VMs |
 | **Google / Firebase Cloud Functions** | 2m / mo reqs + 400k / mo GB-s + 200k / mo CPU-s + 5 GB / mo egress | [Yes](https://cloud.google.com/billing/docs/how-to/budgets)  | $0.40 per 1m reqs + $0.0000025 per GB-s +  $0.0000100 per CPU-s + $0.12 per GB egress |
-| **IBM Code Engine**                   | 256                                                          |                                                              | 2048                                                         |
-| **Oracle (OCI) Functions**            | 128                                                          |                                                              | 1024                                                         |
-| **Tencent Cloud Functions**           |                                                              |                                                              |                                                              |
-| **Vercel Functions**                  | 1024                                                         |                                                              | 3008                                                         |
+| **IBM Code Engine**                   | 100k vCPU-s + 200k GB-s + 100k reqs per mo                   | ?                                                            | $0.00003431 / vCPU-s + $0.00000356 / GB-s + $0.538 / 1m reqs |
+| **Oracle (OCI) Functions**            | 2m / mo reqs + 400k / mo GB-s                                | Yes                                                          | $0.0000002 per req + $0.00001417 per GB-s                    |
+| **Tencent Cloud Functions**           | 3 month trial with resource limits                           | ?                                                            | $0.0000167 per GB-s + $0.002 per 10k reqs + $0.00000847 per idle GB-s + $0.06 per day + $0.0752 per GB egress |
+| **Vercel Functions**                  | 100 GB-hrs + 100 GB data transfer                            | Yes                                                          | 1,000 GB-hrs + 1TB data transfer                             |
 
 reqs = requests, m = million, mo = month, s = seconds, mem = memory, k = thousand, ms = milliseconds
 
 ## Runtime Limits
 
-|                                       | Memory      |         | Execution Time (s) |                 | **Payloads (MB)** |              | Code Size (MB) | Scale Limits          |
-| ------------------------------------- | ----------- | ------- | ------------------ | --------------- | ----------------- | ------------ | -------------- | --------------------- |
-|                                       | **Default** | **Max** | **Default**        | **Max**         | **Request**       | **Response** |                |                       |
-| **Alibaba Cloud Function Compute**    | 32 GB       | 32 GB   | 86,400             | 86,400          | 32                | ?            | 500            | 300                   |
-| **AWS Lambda**                        | 128 MB      | 10 GB   | 3s                 | 15min           | 6                 | 6            | 50 (zip)       | 10k per reg. per sec. |
-| **AWS Lambda@Edge**                   | 128 MB      | 3 GB    | 3s                 | 30s             | ?                 | 1            | 50 (zip)       | 10k per reg. per sec. |
-| **Azure Functions**                   | 1.5 GB      | 14 GB   | 5min               | 10min           | 100               | ?            | ?              | 100 instances         |
-| **Fermyon**                           | ?           | ?       | 30s                | 30s             | ?                 | ?            | 100            | 1k RPS                |
-| **Fly.io**                            | 256 MB      | 128 GB  | NA                 | NA              | NA                | NA           | NA             | NA                    |
-| **Google / Firebase Cloud Functions** | -           | 32GB    | -                  | 60min           | 32                | 32           | None           | 1k RPS / inst.        |
-| **IBM Code Engine**                   | 256         | 2048    | 1m                 | 10m             | 5                 | 5            |                |                       |
-| **Oracle (OCI) Functions**            | 128         | 1024    | 30s                | 120s            | 6                 | 6            |                |                       |
-| **Tencent Cloud Functions**           |             |         |                    |                 |                   |              |                |                       |
-| **Vercel Functions**                  | 1024        | 3008    | 10s (Free plan)    | 300s (Pro plan) | 5                 | 5            |                |                       |
+|                                       | Memory      |         | Execution Time (s) |         | **Payloads (MB)** |              | Code Size (MB) | Scale Limits              |
+| ------------------------------------- | ----------- | ------- | ------------------ | ------- | ----------------- | ------------ | -------------- | ------------------------- |
+|                                       | **Default** | **Max** | **Default**        | **Max** | **Request**       | **Response** |                |                           |
+| **Alibaba Cloud Function Compute**    | 32 GB       | 32 GB   | 86k                | 86k     | 32                | ?            | 500            | 300                       |
+| **AWS Lambda**                        | 128 MB      | 10 GB   | 3s                 | 15min   | 6                 | 6            | 50 (zip)       | 10k per reg. per sec.     |
+| **AWS Lambda@Edge**                   | 128 MB      | 3 GB    | 3s                 | 30s     | ?                 | 1            | 50 (zip)       | 10k per reg. per sec.     |
+| **Azure Functions**                   | 1.5 GB      | 14 GB   | 5min               | 10min   | 100               | ?            | ?              | 100 inst.                 |
+| **Fermyon**                           | ?           | ?       | 30s                | 30s     | ?                 | ?            | 100            | 1k RPS                    |
+| **Fly.io**                            | 256 MB      | 128 GB  | NA                 | NA      | NA                | NA           | NA             | NA                        |
+| **Google / Firebase Cloud Functions** | -           | 32GB    | -                  | 60min   | 32                | 32           | None           | 1k RPS / inst.            |
+| **IBM Code Engine**                   | 2 GB        | 4 GB    | 120s               | -       | ?                 | ?            | 100 KB         | ?                         |
+| **Oracle (OCI) Functions**            | 128 MB      | 2 GB    | 30s                | 300s    | ?                 | ?            | ?              | 40 GB total mem           |
+| **Tencent Cloud Functions**           | 64 MB       | 3 GB    | 1s                 | 900s    | 6                 | 6            | 500 (unzip)    | 64 GB total mem           |
+| **Vercel Functions**                  | 1 GB        | 3 GB    | 10s                | 300s    | ?                 | ?            | 250 (zip)      | 1k RPS per 10 sec per reg |
 
 AWS allocates 1 vCPU per 1,769 MB of memory configured.
 
 ## Other Platform Products
 
-|                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  | Auth |
-| ------------------------------------- | ------ | --------- | ---------- | ------------ | ---- | ---- |
-| **Alibaba Cloud Function Compute**    |        |           |            |              |      |      |
-| **AWS Lambda and Lambda@Edge**        |        |           |            |              |      |      |
-| **Azure Functions**                   |        |           |            |              |      |      |
-| **Fermyon**                           |        |           |            |              |      |      |
-| **Fly.io**                            |        |           |            |              |      |      |
-| **Google / Firebase Cloud Functions** |        |           |            |              |      |      |
-| **IBM Code Engine**                   |        |           |            |              |      |      |
-| **Oracle (OCI) Functions**            |        |           |            |              |      |      |
-| **Vercel Functions**                  |        |           |            |              |      |      |
+|                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  | Auth       |
+| ------------------------------------- | ------ | --------- | ---------- | ------------ | ---- | ---------- |
+| **Alibaba Cloud Function Compute**    |        |           |            |              |      |            |
+| **AWS Lambda and Lambda@Edge**        |        |           |            |              |      |            |
+| **Azure Functions**                   |        |           |            |              |      |            |
+| **Fermyon**                           |        |           |            |              |      |            |
+| **Fly.io**                            |        |           |            |              |      |            |
+| **Google / Firebase Cloud Functions** |        |           |            |              |      |            |
+| **IBM Code Engine**                   |        |           |            |              |      |            |
+| **Oracle (OCI) Functions**            |        |           |            |              |      |            |
+| **Tencent Cloud Functions**           |        |           |            |              |      |            |
+| **Vercel Functions**                  | ✅      | ✅         | ✅          | ✅            | 🚫    | w/ Next.js |
 
 ## Performance (median times)
 
 TODO: Need a benchmark suite for Python, see [this JS suite](https://github.com/serverless-benchmark/backend)
 
-|                                    | PoPs (if edge) or regions | Uptime | Cold Response (ms) | Warm Response (ms) | Overhead (ms) |
-| ---------------------------------- | ------------------------- | ------ | ------------------ | ------------------ | ------------- |
-| **Alibaba Cloud Function Compute** |                           |        |                    |                    |               |
-| **AWS Lambda**                     |                           |        |                    |                    |               |
-| **AWS Lambda@Edge**                |                           |        |                    |                    |               |
-| **Azure Functions**                |                           |        |                    |                    |               |
-| **Fermyon**                        |                           |        |                    |                    |               |
-| **Fly.io**                         |                           |        |                    |                    |               |
-| **Google Cloud Functions**         |                           |        |                    |                    |               |
-| **IBM Code Engine**                |                           |        |                    |                    |               |
-| **Oracle (OCI) Functions**         |                           |        |                    |                    |               |
-| **Tencent Cloud Functions**        |                           |        |                    |                    |               |
-| **Vercel Functions**               |                           |        |                    |                    |               |
+|                                       | PoPs (if edge) or regions | Uptime | Cold Response (ms) | Warm Response (ms) | Overhead (ms) |
+| ------------------------------------- | ------------------------- | ------ | ------------------ | ------------------ | ------------- |
+| **Alibaba Cloud Function Compute**    |                           |        |                    |                    |               |
+| **AWS Lambda**                        |                           |        |                    |                    |               |
+| **AWS Lambda@Edge**                   |                           |        |                    |                    |               |
+| **Azure Functions**                   |                           |        |                    |                    |               |
+| **Fermyon**                           |                           |        |                    |                    |               |
+| **Fly.io**                            |                           |        |                    |                    |               |
+| **Google / Firebase Cloud Functions** |                           |        |                    |                    |               |
+| **IBM Code Engine**                   |                           |        |                    |                    |               |
+| **Oracle (OCI) Functions**            |                           |        |                    |                    |               |
+| **Tencent Cloud Functions**           |                           |        |                    |                    |               |
+| **Vercel Functions**                  |                           |        |                    |                    |               |
 
 ## Security Considerations
 

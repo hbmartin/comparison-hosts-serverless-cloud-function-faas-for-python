@@ -1,6 +1,7 @@
 # Comparing hosts / providers for serverless cloud functions (FaaS) for Python
 
-TODO: Slack/ Discord / Twitter / Mastodon badges
+[![discord](https://img.shields.io/discord/267624335836053506?logo=discord&label=&color=323338)](https://discord.gg/python)
+[![twitter](https://img.shields.io/badge/@hmartin-00aced.svg?logo=twitter&logoColor=black)](https://twitter.com/hmartin)
 
 No Python support: Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEngine. IBM Cloud Functions are deprecated.
 
@@ -17,7 +18,7 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 | **AWS Lambda and Lambda@Edge**        | 3.12           | GA        | Plain obj.                      | Vendor in zip    | ✅             | 👍    | [Link](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python) |
 | **Azure Functions**                   | 3.11           | GA        | azure-functions                 | ✅                | ✅             | 🎉    | [Link](https://learn.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=python) |
 | **Fermyon** (WASM compiled)           | 3.11           | No-native | Spin                            | ❔                |               | 👍    |                                                              |
-| **Fly.io** (microVM)                  | *              | GA        | *                               | ✅                |               | 👍    | [Link](https://fly.io/docs/languages-and-frameworks/python/) |
+| **Fly.io** (microVM)                  | Any              | GA        | Any                               | ✅                |               | 👍    | [Link](https://fly.io/docs/languages-and-frameworks/python/) |
 | **Google / Firebase Cloud Functions** | 3.12           | GA        | Flask                           | ✅                | ✅             | 🎉    |                                                              |
 | **IBM Code Engine**                   | 3.11           | GA        | Plain obj.                      | ✅                | ✅             | 👍    | [Link](https://github.com/IBM/CodeEngine/tree/main/helloworld-samples/function-codebundle-python) |
 | **Oracle (OCI) Functions**            | 3.11           | GA        | FDK                             | ✅                | ❔             | Min. | [Link](https://github.com/oracle-samples/oracle-functions-samples/tree/master/samples/helloworld) |

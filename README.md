@@ -12,51 +12,55 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 
 ## DevEx
 
-|                                       | Python Version | Status    | API Framework                   | requirements.txt | Local Testing | Docs | Basic Example                                                |
+|                                       | Python Version | Status    | API Framework                   | requirements.txt | Local Testing | Docs | Hello  World                                   |
 | ------------------------------------- | -------------- | --------- | ------------------------------- | ---------------- | ------------- | ---- | ------------------------------------------------------------ |
-| **Alibaba Cloud Function Compute**    | 3.10           | GA        | Plain obj.                      | Vendor in zip    | ❔             | 🎉    | [Link](https://www.alibabacloud.com/help/en/functioncompute/latest/event-handlers) |
-| **AWS Lambda and Lambda@Edge**        | 3.12           | GA        | Plain obj.                      | Vendor in zip    | ✅             | 👍    | [Link](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python) |
-| **Azure Functions**                   | 3.11           | GA        | azure-functions                 | ✅                | ✅             | 🎉    | [Link](https://learn.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=python) |
-| **Fermyon** (WASM compiled)           | 3.11           | No-native | Spin                            | ❔                |               | 👍    |                                                              |
-| **Fly.io** (microVM)                  | Any              | GA        | Any                               | ✅                |               | 👍    | [Link](https://fly.io/docs/languages-and-frameworks/python/) |
+| **Alibaba Cloud Function Compute**    | 3.10           | GA        | Plain object                   | Vendor in zip    | ❔             | 🎉    | [Link](https://www.alibabacloud.com/help/en/functioncompute/latest/event-handlers) |
+| **AWS Lambda & Lambda@Edge**        | 3.12           | GA        | Plain object                | Vendor in zip    | ✅             | 👍    | [Link](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python) |
+| **Azure Functions**                   | 3.11           | GA        | azure functions                | ✅                | ✅             | 🎉    | [Link](https://learn.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=python) |
+| **Fermyon** (WASM)           | 3.11           | No-native | Spin                            | ❔                | ❔ | 👍    | [Link](https://www.fermyon.com/blog/spin-python-sdk) |
+| **Fly.io** (microVM)                  | Any              | GA        | Any                               | ✅                | ❔ | 👍    | [Link](https://fly.io/docs/languages-and-frameworks/python/) |
 | **Google / Firebase Cloud Functions** | 3.12           | GA        | Flask                           | ✅                | ✅             | 🎉    |                                                              |
-| **IBM Code Engine**                   | 3.11           | GA        | Plain obj.                      | ✅                | ✅             | 👍    | [Link](https://github.com/IBM/CodeEngine/tree/main/helloworld-samples/function-codebundle-python) |
+| **IBM Code Engine**                   | 3.11           | GA        | Plain object                | ✅                | ✅             | 👍    | [Link](https://github.com/IBM/CodeEngine/tree/main/helloworld-samples/function-codebundle-python) |
 | **Oracle (OCI) Functions**            | 3.11           | GA        | FDK                             | ✅                | ❔             | Min. | [Link](https://github.com/oracle-samples/oracle-functions-samples/tree/master/samples/helloworld) |
 | **Tencent Cloud Functions**           | 3.6            | GA        | SCF                             | Vendor in zip    | ❔             | Min. | [Link](https://www.tencentcloud.com/document/product/583/40327) |
-| **Vercel Functions**                  | 3.9            | Beta      | HTTP handler or WSGI / ASGI app | ✅                | ❔             | Min. | [Link](https://vercel.com/templates/python/python-hello-world) |
+| **Vercel Functions**                  | 3.9            | Beta      | HTTP handler or WSGI / ASGI | ✅                | ❔             | Min. | [Link](https://vercel.com/templates/python/python-hello-world) |
 
 ## Pricing
 
-|                                    | **Free Plan** | Bill Limits | **First Paid Tier** | Second Paid Tier |
-| ---------------------------------- | ------------- | ----------- | ------------------- | ---------------- |
-| **Alibaba Cloud Function Compute** | ?             |             | ?                   |                  |
-| **AWS Lambda**                     | 128           |             | 3008                |                  |
-| **AWS Lambda@Edge**                | 128           |             | 128                 |                  |
-| **Azure Functions**                | NA            |             | 1536                |                  |
-| **Fermyon**                        |               |             |                     |                  |
-| **Fly.io**                         | NA            |             | NA                  |                  |
-| **Google Cloud Functions**         | 128           |             | 2048                |                  |
-| **IBM Code Engine**                | 256           |             | 2048                |                  |
-| **Oracle (OCI) Functions**         | 128           |             | 1024                |                  |
-| **Tencent Cloud Functions**        |               |             |                     |                  |
-| **Vercel Functions**               | 1024          |             | 3008                |                  |
+|                                    | **Free Plan**                                                | Bill Limits | **First Paid Tier**                                          |
+| ---------------------------------- | ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
+| **Alibaba Cloud Function Compute** | 3 month trial with resource limits                           | ❔           | [Based on requests and resources](https://www.alibabacloud.com/help/en/fc/product-overview/billing-overview) |
+| **AWS Lambda**                     | [1m reqs / mo + 400,000 GB-s / month](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/lambda.html) (based on memory configuration) + [data transfer](https://aws.amazon.com/ec2/pricing/on-demand/) (~$0.09 per GB out) | 🚫           | $0.20 per 1m reqs + $0.00001667 per GB-s (over free tier) + [data transfer](https://aws.amazon.com/ec2/pricing/on-demand/) (~$0.09 per GB out) |
+| **AWS Lambda@Edge**                | None                                                         | 🚫           | [$0.60 per 1m reqs + $0.00000625125 per GB-s](https://aws.amazon.com/cloudfront/pricing/) + data transfer (~$0.09 per GB out) |
+| **Azure Functions**                | NA                                                           |             | 1536                                                         |
+| **Fermyon**                        |                                                              |             |                                                              |
+| **Fly.io**                         | NA                                                           |             | NA                                                           |
+| **Google Cloud Functions**         | 128                                                          |             | 2048                                                         |
+| **IBM Code Engine**                | 256                                                          |             | 2048                                                         |
+| **Oracle (OCI) Functions**         | 128                                                          |             | 1024                                                         |
+| **Tencent Cloud Functions**        |                                                              |             |                                                              |
+| **Vercel Functions**               | 1024                                                         |             | 3008                                                         |
+
+Notes: reqs = requests, m = million, mo = month, s = seconds, mem = memory
 
 ## Runtime Limits
 
-|                             | Memory (MB) |         | Execution Time  |                 | **Payloads (MB)** |              | Keep Alive | Scale Limits |
-| --------------------------- | ----------- | ------- | --------------- | --------------- | ----------------- | ------------ | ---------- | ------------ |
-|                             | **Default** | **Max** | **Default**     | **Max**         | **Request**       | **Response** | (Mins)     |              |
-| **Alibaba Functions**       | ?           | ?       | ?               | 600s            | 61                | 61           |            |              |
-| **AWS Lambda**              | 128         | 3008    | 3s              | 15m             | 61                | 61           |            |              |
-| **AWS Lambda@Edge**         | 128         | 128     | 30s             | 5s              | 50Mb              | 40 KB        |            |              |
-| **Azure Functions**         | NA          | 1536    | 5m              | 10m             | No limit          | No limit     |            |              |
-| **Fermyon**                 |             |         |                 |                 |                   |              |            |              |
-| **Fly.io**                  | NA          | NA      | No limit        | No limit        | No limit          | No limit     |            |              |
-| **Google cloud Functions**  | 128         | 2048    | NA              | 540s            | 10                | 10           |            |              |
-| **IBM Code Engine**         | 256         | 2048    | 1m              | 10m             | 5                 | 5            |            |              |
-| **Oracle (OCI) Functions**  | 128         | 1024    | 30s             | 120s            | 6                 | 6            |            |              |
-| **Tencent Cloud Functions** |             |         |                 |                 |                   |              |            |              |
-| **Vercel Functions**        | 1024        | 3008    | 10s (Free plan) | 300s (Pro plan) | 5                 | 5            |            |              |
+|                                    | Memory (MB) |         | Execution Time (s) |                 | **Payloads (MB)** |              | Code Size (MB) | Scale Limits  |
+| ---------------------------------- | ----------- | ------- | ------------------ | --------------- | ----------------- | ------------ | -------------- | ------------- |
+|                                    | **Default** | **Max** | **Default**        | **Max**         | **Request**       | **Response** |                |               |
+| **Alibaba Cloud Function Compute** | 32 GB       | 32 GB   | 86,400             | 86,400          | 32                | ?            | 500            | 300           |
+| **AWS Lambda**                     | 128         | 10,240  | 3s                 | 15min           | 6                 | 6            | 50 (zip)       | 1k concurrent |
+| **AWS Lambda@Edge**                | 128         | 128     | 30s                | 5s              | 50Mb              | 40 KB        |                |               |
+| **Azure Functions**                | NA          | 1536    | 5m                 | 10m             | No limit          | No limit     |                |               |
+| **Fermyon**                        |             |         |                    |                 |                   |              |                |               |
+| **Fly.io**                         | NA          | NA      | No limit           | No limit        | No limit          | No limit     |                |               |
+| **Google cloud Functions**         | 128         | 2048    | NA                 | 540s            | 10                | 10           |                |               |
+| **IBM Code Engine**                | 256         | 2048    | 1m                 | 10m             | 5                 | 5            |                |               |
+| **Oracle (OCI) Functions**         | 128         | 1024    | 30s                | 120s            | 6                 | 6            |                |               |
+| **Tencent Cloud Functions**        |             |         |                    |                 |                   |              |                |               |
+| **Vercel Functions**               | 1024        | 3008    | 10s (Free plan)    | 300s (Pro plan) | 5                 | 5            |                |               |
+
+AWS allocates 1 vCPU per 1,769 MB of memory configured.
 
 ## Other Platform Products
 

@@ -8,7 +8,13 @@ No Python support: Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEng
 This document provides an up-to-date comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes.
 Note the distinction between edge providers (execution at PoP) and non-edge (typically predetermined DS region).
 
-[TOC]
+- [DevEx](#devex)
+- [Pricing](#pricing)
+- [Runtime Limits](#runtime-limits)
+- [Other Platform Products](#other-platform-products)
+- [Discussions, Community, and Support](#discussions-community-and-support)
+
+
 
 ## DevEx
 
@@ -27,38 +33,38 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 
 ## Pricing
 
-|                                    | **Free Plan**                                                | Bill Limits                                                  | **First Paid Tier**                                          |
-| ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| **Alibaba Cloud Function Compute** | 3 month trial with resource limits                           | ?                                                            | [Based on requests and resources](https://www.alibabacloud.com/help/en/fc/product-overview/billing-overview) |
-| **AWS Lambda**                     | [1m reqs / mo + 400,000 GB-s / mo](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/lambda.html) (based on memory configuration) + [data egress](https://aws.amazon.com/ec2/pricing/on-demand/) (~$0.09 per GB) | 🚫                                                            | $0.20 per 1m reqs + $0.00001667 per GB-s (over free tier) + [data egress](https://aws.amazon.com/ec2/pricing/on-demand/) (~$0.09 per GB) |
-| **AWS Lambda@Edge**                | None                                                         | 🚫                                                            | [$0.60 per 1m reqs + $0.00000625125 per GB-s](https://aws.amazon.com/cloudfront/pricing/) + data egress (~$0.09 per GB) |
-| **Azure Functions**                | 1m reqs / mo + 400,000 GB-s / mo + first 100 GB / mo data egress | [Yes](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/spending-limit) | $0.20 per 1m reqs + $0.000016 per GB-s (over free) + $0.08 per GB egress (over 100 GB) |
-| **Fermyon**                        | [100k reqs + 5GB egress](https://www.fermyon.com/pricing)    | NA                                                           | 1m reqs + 50GB egress at $20 / mo                            |
-| **Fly.io**                         | NA                                                           |                                                              | NA                                                           |
-| **Google Cloud Functions**         | 128                                                          |                                                              | 2048                                                         |
-| **IBM Code Engine**                | 256                                                          |                                                              | 2048                                                         |
-| **Oracle (OCI) Functions**         | 128                                                          |                                                              | 1024                                                         |
-| **Tencent Cloud Functions**        |                                                              |                                                              |                                                              |
-| **Vercel Functions**               | 1024                                                         |                                                              | 3008                                                         |
+|                                       | **Free Plan**                                                | Bill Limits                                                  | **First Paid Tier**                                          |
+| ------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Alibaba Cloud Function Compute**    | 3 month trial with resource limits                           | ?                                                            | [Based on requests and resources](https://www.alibabacloud.com/help/en/fc/product-overview/billing-overview) |
+| **AWS Lambda**                        | [1m reqs / mo + 400,000 GB-s / mo](https://docs.aws.amazon.com/whitepapers/latest/how-aws-pricing-works/lambda.html) (based on memory configuration) + [data egress](https://aws.amazon.com/ec2/pricing/on-demand/) (~$0.09 per GB) | 🚫                                                            | $0.20 per 1m reqs + $0.00001667 per GB-s (over free tier) + [data egress](https://aws.amazon.com/ec2/pricing/on-demand/) (~$0.09 per GB) |
+| **AWS Lambda@Edge**                   | None                                                         | 🚫                                                            | [$0.60 per 1m reqs + $0.00000625125 per GB-s](https://aws.amazon.com/cloudfront/pricing/) + egress (~$0.09 per GB) |
+| **Azure Functions**                   | 1m reqs / mo + 400,000 GB-s / mo + first 100 GB / mo egress  | [Yes](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/spending-limit) | $0.20 per 1m reqs + $0.000016 per GB-s (over free) + $0.08 per GB egress (over 100 GB) |
+| **Fermyon**                           | [100k reqs + 5GB egress](https://www.fermyon.com/pricing)    | NA                                                           | 1m reqs + 50GB egress at $20 / mo                            |
+| **Fly.io**                            | 3 shared-cpu-1x 256mb VMs + 100GB egress                     | NA                                                           | Depends on VM + $0.02 per GB egress (over free, min $5 / mo) + $0.15 per GB / mo stopped VMs |
+| **Google / Firebase Cloud Functions** | 2m / mo reqs + 400k / mo GB-s + 200k / mo CPU-s + 5 GB / mo egress | [Yes](https://cloud.google.com/billing/docs/how-to/budgets)  | $0.40 per 1m reqs + $0.0000025 per GB-s +  $0.0000100 per CPU-s + $0.12 per GB egress |
+| **IBM Code Engine**                   | 256                                                          |                                                              | 2048                                                         |
+| **Oracle (OCI) Functions**            | 128                                                          |                                                              | 1024                                                         |
+| **Tencent Cloud Functions**           |                                                              |                                                              |                                                              |
+| **Vercel Functions**                  | 1024                                                         |                                                              | 3008                                                         |
 
-reqs = requests, m = million, mo = month, s = seconds, mem = memory, k = thousand
+reqs = requests, m = million, mo = month, s = seconds, mem = memory, k = thousand, ms = milliseconds
 
 ## Runtime Limits
 
-|                                    | Memory      |         | Execution Time (s) |                 | **Payloads (MB)** |              | Code Size (MB) | Scale Limits          |
-| ---------------------------------- | ----------- | ------- | ------------------ | --------------- | ----------------- | ------------ | -------------- | --------------------- |
-|                                    | **Default** | **Max** | **Default**        | **Max**         | **Request**       | **Response** |                |                       |
-| **Alibaba Cloud Function Compute** | 32 GB       | 32 GB   | 86,400             | 86,400          | 32                | ?            | 500            | 300                   |
-| **AWS Lambda**                     | 128 MB      | 10 GB   | 3s                 | 15min           | 6                 | 6            | 50 (zip)       | 10k per reg. per sec. |
-| **AWS Lambda@Edge**                | 128 MB      | 3 GB    | 3s                 | 30s             | ?                 | 1            | 50 (zip)       | 10k per reg. per sec. |
-| **Azure Functions**                | 1.5 GB      | 14 GB   | 5min               | 10min           | 100               | ?            | ?              | 100 instances         |
-| **Fermyon**                        | ?           | ?       | 30s                | 30s             | ?                 | ?            | 100            | 1k RPS                |
-| **Fly.io**                         | NA          | NA      | No limit           | No limit        | No limit          | No limit     |                |                       |
-| **Google cloud Functions**         | 128         | 2048    | NA                 | 540s            | 10                | 10           |                |                       |
-| **IBM Code Engine**                | 256         | 2048    | 1m                 | 10m             | 5                 | 5            |                |                       |
-| **Oracle (OCI) Functions**         | 128         | 1024    | 30s                | 120s            | 6                 | 6            |                |                       |
-| **Tencent Cloud Functions**        |             |         |                    |                 |                   |              |                |                       |
-| **Vercel Functions**               | 1024        | 3008    | 10s (Free plan)    | 300s (Pro plan) | 5                 | 5            |                |                       |
+|                                       | Memory      |         | Execution Time (s) |                 | **Payloads (MB)** |              | Code Size (MB) | Scale Limits          |
+| ------------------------------------- | ----------- | ------- | ------------------ | --------------- | ----------------- | ------------ | -------------- | --------------------- |
+|                                       | **Default** | **Max** | **Default**        | **Max**         | **Request**       | **Response** |                |                       |
+| **Alibaba Cloud Function Compute**    | 32 GB       | 32 GB   | 86,400             | 86,400          | 32                | ?            | 500            | 300                   |
+| **AWS Lambda**                        | 128 MB      | 10 GB   | 3s                 | 15min           | 6                 | 6            | 50 (zip)       | 10k per reg. per sec. |
+| **AWS Lambda@Edge**                   | 128 MB      | 3 GB    | 3s                 | 30s             | ?                 | 1            | 50 (zip)       | 10k per reg. per sec. |
+| **Azure Functions**                   | 1.5 GB      | 14 GB   | 5min               | 10min           | 100               | ?            | ?              | 100 instances         |
+| **Fermyon**                           | ?           | ?       | 30s                | 30s             | ?                 | ?            | 100            | 1k RPS                |
+| **Fly.io**                            | 256 MB      | 128 GB  | NA                 | NA              | NA                | NA           | NA             | NA                    |
+| **Google / Firebase Cloud Functions** | -           | 32GB    | -                  | 60min           | 32                | 32           | None           | 1k RPS / inst.        |
+| **IBM Code Engine**                   | 256         | 2048    | 1m                 | 10m             | 5                 | 5            |                |                       |
+| **Oracle (OCI) Functions**            | 128         | 1024    | 30s                | 120s            | 6                 | 6            |                |                       |
+| **Tencent Cloud Functions**           |             |         |                    |                 |                   |              |                |                       |
+| **Vercel Functions**                  | 1024        | 3008    | 10s (Free plan)    | 300s (Pro plan) | 5                 | 5            |                |                       |
 
 AWS allocates 1 vCPU per 1,769 MB of memory configured.
 

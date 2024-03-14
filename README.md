@@ -8,7 +8,9 @@ No Python support: Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEng
 This document provides a comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes.
 Note the distinction between edge providers (execution at PoP) and non-edge (typically predetermined DS region).
 
-Please join our [discussions](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions) or fix/update infromation by [editing this doc](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/edit/main/README.md) !
+Please join our [discussions](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions) or fix/update information by [editing this doc](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/edit/main/README.md)!
+
+See also the [Serverless SQL DB Comparison](https://github.com/hbmartin/comparison-serverless-cloud-sql-databases)
 
 - [DevEx](#devex)
 - [Pricing](#pricing)

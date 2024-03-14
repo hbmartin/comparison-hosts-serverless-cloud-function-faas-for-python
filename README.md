@@ -33,7 +33,7 @@ Please be aware that this information may be inaccurate or outdated. If you disc
 
 ## Pricing
 
-Note that the "Free Plan" is intended to represent ongoing free resources i.e. not trials or sign-up credits. 
+Note that the "Free Plan" is intended to represent ongoing free resources i.e. not trials or sign-up credits.
 
 |                                       | **Free Plan**                                                | Bill Limits                                                  | **First Paid Tier**                                          |
 | ------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -72,18 +72,18 @@ AWS allocates 1 vCPU per 1,769 MB of memory configured.
 
 ## Other Platform Products
 
-|                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  | Auth       |
-| ------------------------------------- | ------ | --------- | ---------- | ------------ | ---- | ---------- |
-| **Alibaba Cloud Function Compute**    |        |           |            |              |      |            |
-| **AWS Lambda and Lambda@Edge**        |        |           |            |              |      |            |
-| **Azure Functions**                   |        |           |            |              |      |            |
-| **Fermyon**                           |        |           |            |              |      |            |
-| **Fly.io**                            |        |           |            |              |      |            |
-| **Google / Firebase Cloud Functions** |        |           |            |              |      |            |
-| **IBM Code Engine**                   |        |           |            |              |      |            |
-| **Oracle (OCI) Functions**            |        |           |            |              |      |            |
-| **Tencent Cloud Functions**           |        |           |            |              |      |            |
-| **Vercel Functions**                  | ✅      | ✅         | ✅          | ✅            | 🚫    | w/ Next.js |
+|                                       | SQL DB | No SQL DB | Blob Store | File Hosting | GPU  |
+| ------------------------------------- | ------ | --------- | ---------- | ------------ | ---- |
+| **Alibaba Cloud Function Compute**    | ✅      | ✅         | ✅          | ✅            | ✅    |
+| **AWS Lambda and Lambda@Edge**        | ✅      | ✅         | ✅          | ✅            | ✅    |
+| **Azure Functions**                   | ✅      | ✅         | ✅          | ✅            | ✅    |
+| **Fermyon**                           | SQLite | 🚫         | 🚫          | 🚫            | ✅    |
+| **Fly.io**                            | ✅      | ✅         | 🚫          | 🚫            | ✅    |
+| **Google / Firebase Cloud Functions** | ✅      | ✅         | ✅          | ✅            | ✅    |
+| **IBM Code Engine**                   | ✅      | ✅         | ✅          | ✅            | ✅    |
+| **Oracle (OCI) Functions**            | ✅      | ✅         | ✅          | ✅            | ✅    |
+| **Tencent Cloud Functions**           | ✅      | ✅         | ✅          | ✅            | ✅    |
+| **Vercel Functions**                  | ✅      | ✅         | ✅          | ✅            | 🚫    |
 
 ## Performance (median times)
 

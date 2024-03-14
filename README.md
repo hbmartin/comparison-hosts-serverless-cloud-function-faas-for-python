@@ -5,10 +5,10 @@
 
 No Python support: Cloudflare Workers, Netlify Edge Functions, StackPath EdgeEngine. IBM Cloud Functions are deprecated.
 
-This document provides an up-to-date comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes.
+This document provides a comparison between hosted, serverless (no cost or management to spin down to zero) providers of cloud function hosts with Python runtimes.
 Note the distinction between edge providers (execution at PoP) and non-edge (typically predetermined DS region).
 
-Please be aware that this information may be inaccurate or outdated. If you discover errors or outdated information please open a PR!
+Please join our [discussions](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions) or fix/update infromation by [editing this doc](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/edit/main/README.md) !
 
 - [DevEx](#devex)
 - [Pricing](#pricing)
@@ -107,19 +107,21 @@ TODO: Need a benchmark suite for Python, see [this JS suite](https://github.com/
 
 TODO: e.g. compliance certifications, data encryption, and network security options
 
+See also [awesome serverless security](https://github.com/puresec/awesome-serverless-security)
+
 ## Discussions, Community, and Support
 
-|                                       | Our Wiki | Forum | Reddit |
-| ------------------------------------- | -------- | ----- | ------ |
-| **Alibaba Cloud Function Compute**    |          |       |        |
-| **AWS Lambda and Lambda@Edge**        |          |       |        |
-| **Azure Functions**                   |          |       |        |
-| **Fermyon**                           |          |       |        |
-| **Fly.io**                            |          |       |        |
-| **Google / Firebase Cloud Functions** |          |       |        |
-| **IBM Code Engine**                   |          |       |        |
-| **Oracle (OCI) Functions**            |          |       |        |
-| **Vercel Functions**                  |          |       |        |
+|                                       | Ours                                                         | Forum                                                        | GitHub                                                       | SO                                                           | Reddit                                                       |
+| ------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| **Alibaba Cloud Function Compute**    | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/1) | [Forum](https://www.alibabacloud.com/forum)                  |                                                              | [SO](https://stackoverflow.com/questions/tagged/alibaba-cloud) | [r/AlibabCloud](https://www.reddit.com/r/AlibabaCloud/)      |
+| **AWS Lambda and Lambda@Edge**        | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/2) | [re:Post](https://repost.aws/tags/questions/TA5uNafDy2TpGNjidWLMSxDw?view=all) | [GitHub](https://github.com/aws/aws-lambda-builders)         | [SO](https://stackoverflow.com/collectives/aws)              | [r/aws](https://www.reddit.com/r/aws/)                       |
+| **Azure Functions**                   | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/3) | [Forum](https://learn.microsoft.com/en-us/answers/tags/87/azure-functions) | [GitHub](https://github.com/Azure/azure-sdk-for-python)      | [SO](https://stackoverflow.com/collectives/azure)            | [r/AZURE](https://www.reddit.com/r/AZURE/)                   |
+| **Fermyon**                           | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/4) | [Discord](https://discord.com/invite/P4Cx7xUbJu)             | [Feedback](https://github.com/fermyon/feedback)              | [SO](https://stackoverflow.com/questions/tagged/fermyon-spin) |                                                              |
+| **Fly.io**                            | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/5) | [Forum](https://community.fly.io/)                           |                                                              | [SO](https://stackoverflow.com/questions/tagged/fly?tab=Active) |                                                              |
+| **Google / Firebase Cloud Functions** | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/6) | [Group](https://groups.google.com/g/firebase-talk/)          | [GitHub](https://github.com/firebase/firebase-functions-python) | [SO](https://stackoverflow.com/collectives/google-cloud)     | [r/Firebase](https://www.reddit.com/r/Firebase/) and [r/googlecloud](https://www.reddit.com/r/googlecloud/) |
+| **IBM Code Engine**                   | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/7) | [Slack](https://cloud.ibm.com/kubernetes/slack)              | [GitHub](https://github.com/IBM/CodeEngine)                  | [SO](https://stackoverflow.com/questions/tagged/ibm-cloud-code-engine) |                                                              |
+| **Oracle (OCI) Functions**            | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/8) | [Forum](https://forums.oracle.com/ords/apexds/domain/dev-community/category/containers-cloud-native) | [GitHub](https://github.com/oracle-samples/oracle-functions-samples) | [SO](https://stackoverflow.com/questions/tagged/oracle-cloud-functions) | [r/oraclecloud](https://www.reddit.com/r/oraclecloud/)       |
+| **Vercel Functions**                  | [Link](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions/9) | [Help](https://vercel.com/help)                              | [GitHub](https://github.com/orgs/vercel/discussions)         | [SO](https://stackoverflow.com/questions/tagged/vercel)      | [r/Vercel](https://www.reddit.com/r/vercel/)                 |
 
 ## References and Useful Links
 

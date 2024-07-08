@@ -2,9 +2,9 @@ name: CI lint
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,12 @@ jobs:
       - name: Markdown Lint
         uses: avto-dev/markdown-lint@v1.5.0
         with:
-          args: './README.md'
-          config: './.markdownlint.jsonc'
+          args: "./README.md"
+          config: "./.markdownlint.jsonc"
       - name: Typos
         uses: crate-ci/typos@v1.19.0
+      - name: Run linkspector
+        uses: umbrelladocs/action-linkspector@v1
+        with:
+          reporter: github-check
+          fail_on_error: true

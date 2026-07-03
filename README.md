@@ -12,7 +12,7 @@ Note the distinction between edge providers (execution at PoP) and non-edge (typ
 
 Please join our [discussions](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/discussions) or fix/update information by [editing this doc](https://github.com/hbmartin/comparison-hosts-serverless-cloud-function-faas-for-python/edit/main/README.md)!
 
-See also the [Serverless SQL DB Comparison](https://github.com/hbmartin/comparison-serverless-cloud-sql-databases)
+See also the ["one-click" container image deployment comparison](one-click-image-deployment.md) (not Python specific) and the [Serverless SQL DB Comparison](https://github.com/hbmartin/comparison-serverless-cloud-sql-databases)
 
 - [Recent Platform Changes](#recent-platform-changes-20242026)
 - [DevEx](#devex)

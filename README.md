@@ -44,6 +44,7 @@ See also the ["one-click" container image deployment comparison](one-click-image
 
 Promising platforms that are not (yet) full rows below:
 
+- [Phemeral](https://phemeral.dev/) — a Python-only PaaS ("where Python backends live") that links a GitHub repo, auto-detects the framework (Flask/Django/FastAPI), package manager, and dependencies (no Dockerfile), and deploys with auto-scaling and scale-to-zero; a [custom serverless orchestrator on fast-starting VMs aims to avoid first-request cold-start penalties](https://talkpython.fm/episodes/show/551/stroll-down-startup-lane-2026). In early access, with managed serverless Postgres on the roadmap; no GPU, and pricing and runtime limits are not yet published.
 - [Wasmer Edge](https://wasmer.io/pricing) — CPython 3.12 at the edge via WASIX, with [unmodified FastAPI/Django/Flask support since Sept 2025](https://wasmer.io/posts/python-on-the-edge-powered-by-webassembly); free Hobby tier (100 compute-hrs + 150 GB bandwidth/mo) and $10/mo Pro, but [runtime resource limits are undocumented](https://docs.wasmer.io/edge/architecture) and the company is very small.
 - [Leapcell](https://leapcell.io/) — new platform billing per request + per compute-ms with [$0 when idle and Python (FastAPI/Django/Flask) support](https://docs.leapcell.io/); young and lightly documented.
 - [Sevalla](https://sevalla.com/) — Kinsta's PaaS: per-second pod billing with [Hibernation scale-to-zero (8–20 s wake)](https://sevalla.com/blog/shipping-hibernation-in-3-days/); no ongoing free tier (one-time credit only).
@@ -349,6 +350,7 @@ All sources below were used to verify the data above and were accessed on July 1
 
 ### Watchlist platforms
 
+- [Phemeral](https://phemeral.dev/) · [Talk Python #551 — "Stroll Down Startup Lane 2026" (Phemeral segment: Python-only PaaS on fast-starting VMs, early access, Postgres on the roadmap, no GPU)](https://talkpython.fm/episodes/show/551/stroll-down-startup-lane-2026)
 - [Wasmer Edge pricing](https://wasmer.io/pricing) · [Wasmer "Python on the Edge" (Sept 2025)](https://wasmer.io/posts/python-on-the-edge-powered-by-webassembly) · [Wasmer Edge architecture](https://docs.wasmer.io/edge/architecture) · [Flask on Wasmer Edge guide](https://docs.wasmer.io/edge/guides/python-flask-server)
 - [Leapcell docs](https://docs.leapcell.io/) · [Leapcell pricing](https://leapcell.io/pricing) · [Sevalla application pricing](https://docs.sevalla.com/billing/application-pricing) · [Sevalla Hibernation](https://sevalla.com/blog/shipping-hibernation-in-3-days/) · [Blaxel](https://blaxel.ai/)
 
